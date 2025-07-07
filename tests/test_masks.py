@@ -35,20 +35,20 @@ def test_get_mask_card_absent() -> None:
     "account_number, expected",
     [("40702810068696817220", "**7220"), ("40702810112346728272", "**8272"), ("40702810932310508462", "**8462")],
 )
-def test_get_mask_number_account(account_number: str, expected:str) -> None:
+def test_get_mask_number_account(account_number: str, expected: str) -> None:
     assert get_mask_account(account_number) == expected
 
 
 @pytest.mark.parametrize(
     "invalid_account", ["4070281006869681", "407028100686968172204741", "abcdefghijk", "40702 8100686968 17220"]
 )
-def test_get_mask_invalid_account(invalid_account:str) -> None:
+def test_get_mask_invalid_account(invalid_account: str) -> None:
     with pytest.raises(ValueError) as exc_info:
         get_mask_account(invalid_account)
         assert str(exc_info)
 
 
-def test_get_mask_account_absent() ->None:
+def test_get_mask_account_absent() -> None:
     account_nuber = ""
     with pytest.raises(ValueError) as exc_info:
         get_mask_account(account_nuber)
