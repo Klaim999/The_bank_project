@@ -23,10 +23,7 @@ def test_filter_by_currency(transactions, currency, expected_ids):
 
 def test_transaction_descriptions(empty_list):
 
-    with pytest.raises(ValueError) as exc_info:
-        list(transaction_descriptions(empty_list))
-
-        assert str(exc_info)
+    assert list(transaction_descriptions([])) == empty_list
 
 
 @pytest.mark.parametrize(
