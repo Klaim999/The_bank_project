@@ -10,6 +10,8 @@ def filter_by_currency(list_transactions, currency):
 
 def transaction_descriptions(list_transactions):
     """Функция которая, возвращает описание каждой операции по очереди"""
+    if list_transactions == [ ]:
+        raise ValueError("Данные отсутствуют")
 
     for transaction in list_transactions:
         yield transaction["description"]
