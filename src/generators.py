@@ -10,8 +10,6 @@ def filter_by_currency(list_transactions, currency):
 
 def transaction_descriptions(list_transactions):
     """Функция которая, возвращает описание каждой операции по очереди"""
-    if list_transactions == []:
-        raise ValueError("Данные отсутствуют")
 
     for transaction in list_transactions:
         yield transaction["description"]
@@ -24,3 +22,6 @@ def card_number_generator(numbers_start, numbers_stop):
         card_num = f"{number:016d}"
         formatted_number = " ".join([card_num[i : i + 4] for i in range(0, 16, 4)])
         yield formatted_number
+
+
+transactions = []
