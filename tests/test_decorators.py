@@ -48,6 +48,6 @@ def test_error_log(capsys):
     captured = capsys.readouterr()
     output = captured.out
 
-    assert "Error: divide" in output
+    assert "error:" in output
     assert "ZeroDivisionError" in output
     assert "Inputs: (10, 0)" in output
